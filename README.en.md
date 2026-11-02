@@ -25,6 +25,12 @@ The plugin renders a draggable, resizable, collapsible floating panel in the bot
 
 *Expand a topic to see token share and input/output breakdown, tool distribution, agent time, and per-turn details.*
 
+### Graph view
+
+![Graph view](assets/screenshot-graph.png)
+
+*Stage containers + topic tree + subagent branch boxes on the right; the ▾/▸ arrows on stages / topics / subagent branches collapse their content, and clicking elsewhere on a node opens its detail.*
+
 ---
 
 ## Why
@@ -62,7 +68,7 @@ The hardest question in a long session is "where does this stand, where did the 
 - **Follows the sidebar**: reads the shell-persisted current-session selection (`dsh.sessions.current`), so switching workspace/session on the left updates the graph automatically; the panel dropdown can pin a session, and a pinned subagent session survives left-side switches.
 - **Topic detail**: ⓘ on a chain card or a click on a graph node opens a detail overlay (token breakdown, tool distribution, durations, relations, parent/children, subagent branches).
 - **Jump to first turn**: the detail footer's “Open first turn in chat” switches to the session and tries to scroll to the topic's first turn (falls back to opening the session when history is not fully loaded).
-- **Graph controls**: Ctrl+wheel zooms around the cursor, plain wheel scrolls, hover shows a full tooltip, click opens details.
+- **Graph controls**: Ctrl+wheel zooms around the cursor, plain wheel scrolls, hover shows a full tooltip; the ▾/▸ arrows on stages / topics / subagent branches collapse their content, while clicking elsewhere on a node opens its detail.
 - **Floating panel**: ~900px wide by default, resizable up to nearly the viewport width; when collapsed into a pill it can still be dragged, and a tap expands it.
 - **Theme & locale**: only `--dsw-alias-*` theme tokens (light/dark aware); all visible text goes through the dsh locale service (Chinese / English).
 
@@ -179,6 +185,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.3.3** — Collapsible graph nodes: stages, topics, and subagent branches get a ▾/▸ arrow (click the arrow to collapse, click elsewhere to open details).
 - **0.3.2** — Fix `[object Object]` in chain topic token metrics; when structure JSON is truncated, retry with a larger output cap and detect truncation to avoid applying half a structure.
 - **0.3.1** — Discover subagent lineage even when `/graph` is requested before `/sessions`; test hooks and version bump.
 - **0.3.0** — Inline subagent branches in the main graph, title-only relation analysis (incl. revisits), topic detail with jump-to-first-turn, global stats strip, ≤3-level subtopics, wider panel and draggable collapsed pill.
