@@ -25,12 +25,6 @@ The plugin renders a draggable, resizable, collapsible floating panel in the bot
 
 *Expand a topic to see token share and input/output breakdown, tool distribution, agent time, and per-turn details.*
 
-### Graph view
-
-![Graph view](assets/screenshot-graph.png)
-
-*Stage containers + topic tree + subagent branch boxes on the right; subagent topics are drawn inline, hover for details, Ctrl+wheel to zoom.*
-
 ---
 
 ## Why
