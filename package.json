@@ -1,0 +1,55 @@
+{
+  "name": "dsh-topic-graph",
+  "version": "0.3.1",
+  "description": "会话话题图谱：按轮次切分会话，AI 增量聚合为话题与阶段，提供链式与图谱两种视图，展示每个话题/轮次的 token 消耗、工具调用与 Agent 耗时占比。",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "cordis.patch.yml",
+    "icon.svg",
+    "README.md"
+  ],
+  "icon": "./icon.svg",
+  "meta": {
+    "title": {
+      "en": "Topic Graph",
+      "zh": "话题图谱"
+    },
+    "description": {
+      "en": "Segment sessions by turn, let AI incrementally cluster turns into topics and stages, and show token/tool/agent-time shares in chain and graph views.",
+      "zh": "按轮次切分会话，由 AI 增量聚合为话题与阶段，在链式与图谱视图中展示 token、工具调用与 Agent 耗时占比。"
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "plugin",
+    "topic",
+    "graph",
+    "turn",
+    "token-usage"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    }
+  }
+}

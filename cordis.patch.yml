@@ -1,0 +1,36 @@
+# dsh-topic-graph bundle layer — 会话话题图谱。
+#
+# segmentMode: 切分方式
+#   - auto（默认）：优先用 DeepSeek LLM 增量切分，失败自动回退规则切分
+#   - llm：强制 AI 切分（失败保留现状并报错）
+#   - rule：仅规则切分（不调用模型，零成本）
+# provider / model: 切分用的模型路由；留空则自动探测 dsh 当前配置与可用模型
+# batchTurns: 每次请求模型的轮次数（增量切分单位；请求失败会自动减半重试）
+# maxInputChars: 单次请求里「新轮次摘要」的字符上限
+# debounceMs: 一轮结束后等待多久再触发切分（合并密集轮次）
+# minGapMs: 同一会话两次 AI 切分之间的最小间隔（控制 token 成本）
+# autoSegment: 新轮次到达后是否自动增量切分（关闭后仅手动切分）
+# relationMode: 话题关联判断方式 — titles（仅用标题，默认）/ inline（跟随切分输出）/ off
+# reasoningEffort: 切分请求的推理档位 off/low/high/max（400 时会自动换默认档位重试）
+# showSubagents: 会话列表是否展示子代理会话（默认隐藏）
+# ruleTurnsPerTopic / ruleTopicsPerStage: 规则模式的聚合粒度
+- insert:
+    - id: dsh-topic-graph
+      name: dsh-topic-graph
+      config:
+        segmentMode: auto
+        provider: deepseek-official
+        model: deepseek-flash
+        batchTurns: 6
+        maxInputChars: 8000
+        debounceMs: 2500
+        minGapMs: 8000
+        autoSegment: true
+        showSubagents: false
+        includeSubagents: true
+        relationMode: titles
+        reasoningEffort: off
+        maxSubagentDepth: 2
+        maxBranches: 20
+        ruleTurnsPerTopic: 3
+        ruleTopicsPerStage: 5
