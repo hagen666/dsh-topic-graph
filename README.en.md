@@ -185,6 +185,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.3.4** — `/graph` sends turn-text previews only (smaller payload); session-graph LRU with disk backing; parallel subagent branch import; parent cards marked “incl. subtopics”; collapse/zoom persisted; AI segmentation cost & progress; explicit error when the batch cap is hit; code-point-safe truncation; queued next-turn prompt attribution.
 - **0.3.3** — Collapsible graph nodes: stages, topics, and subagent branches get a ▾/▸ arrow (click the arrow to collapse, click elsewhere to open details).
 - **0.3.2** — Fix `[object Object]` in chain topic token metrics; when structure JSON is truncated, retry with a larger output cap and detect truncation to avoid applying half a structure.
 - **0.3.1** — Discover subagent lineage even when `/graph` is requested before `/sessions`; test hooks and version bump.
