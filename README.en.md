@@ -185,6 +185,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.3.7** — Graph relation edges redesigned: relation / sequence / delegate edges run through a dedicated right-hand rail as smooth curves that never cross nodes; click a line or its label to highlight it (cyan), click elsewhere to clear.
 - **0.3.6** — Fix residual O(n²) in `buildGraphPayload` (reuse indexes for topic depth and child ids).
 - **0.3.5** — AI segmentation cost chip always visible (even when 0); client version badge in the footer to verify refresh.
 - **0.3.4** — `/graph` sends turn-text previews only (smaller payload); session-graph LRU with disk backing; parallel subagent branch import; parent cards marked “incl. subtopics”; collapse/zoom persisted; AI segmentation cost & progress; explicit error when the batch cap is hit; code-point-safe truncation; queued next-turn prompt attribution.
