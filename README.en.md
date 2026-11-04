@@ -185,6 +185,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.4.0** — New per-turn AI analysis: in a turn's detail, click “AI analyze” to rebuild that turn's model/tool trace on demand (nothing kept in memory) and generate a plain-language step-by-step how-to; the result is persisted and can be regenerated with “Re-analyze”.
 - **0.3.7** — Graph relation edges redesigned: relation / sequence / delegate edges run through a dedicated right-hand rail as smooth curves that never cross nodes; click a line or its label to highlight it (cyan), click elsewhere to clear.
 - **0.3.6** — Fix residual O(n²) in `buildGraphPayload` (reuse indexes for topic depth and child ids).
 - **0.3.5** — AI segmentation cost chip always visible (even when 0); client version badge in the footer to verify refresh.
