@@ -185,6 +185,18 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.9** — Fix linked scrolling in the workflow view: measure and lock the panel height so the top bar stays fixed and the two columns scroll independently.
+- **0.6.8** — Tried constraining dsh's conversation view container via CSS `:has()` (did not fully work).
+- **0.6.7** — Moved the Workflow/Graph toggle into the stats strip as small buttons; header now reads "Topics: <session title>"; switching stage/topic scrolls the right pane back to top.
+- **0.6.6** — Moved the status dot to the far right next to the model selector.
+- **0.6.5** — Turn collapse hot zone is now "turn number + title"; clicking detail/stats no longer collapses.
+- **0.6.4** — Removed the light background from stage metrics; turns collapse only from the title; per-step step counts in the turn AI analysis.
+- **0.6.3** — Collapsible stages (per-stage arrow + expand/collapse all), right-aligned stage metrics, fainter selected-topic background; turn rows show total steps; the AI analysis marks and links the turn's step count.
+- **0.6.2** — Workflow refinement: two-line stage cards (title + token/time ratios), topic rows show ratios, single-topic selection fixed; stage stats with ratio bars; card collapses from the title; model selector moved right.
+- **0.6.1** — The workflow right pane is now a stage detail with expandable topic cards (no more popup).
+- **0.6.0** — Removed the floating panel (`shell.overlay`); the `conversation.view` "Topics" view is now the only panel.
+- **0.5.0** — New docked "Topics" view after conversation/trajectory; "Chain" → "Topics · Workflow" with a two-column layout; "Graph" → "Topics · Graph"; AI segmentation/relations/turn analysis can use a dsh model (`/models` + `/model` override).
+
 - **0.4.0** — New per-turn AI analysis: in a turn's detail, click “AI analyze” to rebuild that turn's model/tool trace on demand (nothing kept in memory) and generate a plain-language step-by-step how-to; the result is persisted and can be regenerated with “Re-analyze”.
 - **0.3.7** — Graph relation edges redesigned: relation / sequence / delegate edges run through a dedicated right-hand rail as smooth curves that never cross nodes; click a line or its label to highlight it (cyan), click elsewhere to clear.
 - **0.3.6** — Fix residual O(n²) in `buildGraphPayload` (reuse indexes for topic depth and child ids).
