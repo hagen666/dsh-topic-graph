@@ -6,30 +6,22 @@
 
 `dsh-topic-graph` is a Web UI plugin for [dsh](https://github.com/deepseek-ai) (DeepSeek Harness). It listens to the dsh session event stream, splits each session into **turns**, then asks DeepSeek to **incrementally** cluster turns into **topics** and topics into **stages**, naming both. **Subagent sessions** spawned by a session are segmented too and drawn as branches in the very same graph.
 
-The plugin renders a draggable, resizable, collapsible floating panel in the bottom-right corner of the Web UI, with two views:
+The plugin docks as a **Topics** view right after "Conversation" / "Trajectory", with two views:
 
-- **Chain**: stage → topic (with subtopics) → turn details;
-- **Graph**: a tree of stages / topics / subtopics / subagent branches, with Ctrl+wheel zoom, wheel scrolling, and hover tooltips.
+- **Topics · Workflow**: a stage → topic tree on the left, and the selected stage's detail on the right (overview stats, expandable topic cards, turn details and per-turn AI analysis);
+- **Topics · Graph**: a relation graph of stages / topics / subtopics / subagent branches, with Ctrl+wheel zoom and hover tooltips.
+
+The fixed top bar shows session stats (tokens / step time / tools / turns / topics / stages / relations / AI cost) and lets you pick the segmentation model and trigger segmentation.
 
 ## Screenshots
 
-### Chain view
+### Topics · Workflow
 
-![Chain view](assets/screenshot-chain.png)
+![Topics · Workflow](assets/screenshot-topics.png)
 
-*Stage → topic → turns, with the global stats strip on top (tokens / step time / tools / turns / topics / stages / relations).*
+*Stage tree on the left (collapsible, with token/time ratios), and the selected stage on the right: overview stats (tokens / wall time / tools with ratio bars) + expandable topic cards + turn details (total steps, per-turn AI analysis).*
 
-### Expanded topic
-
-![Expanded topic](assets/screenshot-chain-expanded.png)
-
-*Expand a topic to see token share and input/output breakdown, tool distribution, agent time, and per-turn details.*
-
-### Graph view
-
-![Graph view](assets/screenshot-graph.png)
-
-*Stage containers + topic tree + subagent branch boxes on the right; the ▾/▸ arrows on stages / topics / subagent branches collapse their content, and clicking elsewhere on a node opens its detail.*
+> The graph view screenshot will be updated after the relation-visualization redesign.
 
 ---
 
@@ -185,6 +177,8 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.14** — Final colors: stage headers use a brand gradient (9%→4%), selected topics use a 3% tint with no left bar.
+- **0.6.10** — Removed the logo and session title from the top bar; moved the Workflow/Graph toggle to the far left and enlarged it.
 - **0.6.9** — Fix linked scrolling in the workflow view: measure and lock the panel height so the top bar stays fixed and the two columns scroll independently.
 - **0.6.8** — Tried constraining dsh's conversation view container via CSS `:has()` (did not fully work).
 - **0.6.7** — Moved the Workflow/Graph toggle into the stats strip as small buttons; header now reads "Topics: <session title>"; switching stage/topic scrolls the right pane back to top.
