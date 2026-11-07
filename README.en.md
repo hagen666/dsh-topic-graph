@@ -15,21 +15,39 @@ The fixed top bar shows session stats (tokens / step time / tools / turns / topi
 
 ## Screenshots
 
-### Topics · Workflow
+### Workflow: stage overview & in-stage topic relations
 
-![Topics · Workflow](assets/screenshot-workflow.png)
+![Workflow: stage overview](assets/screenshot-workflow.png)
 
-*Stage tree on the left (collapsible, with token/time ratios) and the selected stage's detail on the right: overview stats (tokens / wall time / tools with ratio bars) + expandable topic cards + turn details (total steps, per-turn AI analysis).*
+*Stage tree on the left (collapsible, with token/time ratios); on the right: stage stats (tokens / wall time / tool ratio bars), the **in-stage topic relations** mini chart (X = turn, dots = topics, dashed curves = relations), and expandable topic cards.*
 
-### Topics · Timeline
+### Workflow: topics and turns
 
-![Topics · Timeline](assets/screenshot-timeline.png)
+![Workflow: topics and turns](assets/screenshot-workflow-topic.png)
 
-*X axis = turn (time), Y axis = stage lanes; topics are colored bars positioned by their turn span, and semantic relations are dashed curves (faint by default, highlighted on hover / click).*
+*Expanding a topic card lists its turns: turn number, a preview of the user input, total steps / tokens / tool calls / wall time.*
 
-### Topics · Structure
+### Workflow: turn detail
 
-![Topics · Structure](assets/screenshot-structure.png)
+![Workflow: turn detail](assets/screenshot-workflow-turn.png)
+
+*Expanding a turn shows tokens (in / out / cache read / cache write), step activity time, tool calls, total steps and model, plus the user input / AI reply with a "jump to conversation" action.*
+
+### Workflow: per-turn AI analysis
+
+![Workflow: per-turn AI analysis](assets/screenshot-workflow-ai.png)
+
+*On demand, the model/tool trace of a turn is rewritten as a plain-language step-by-step explanation (each step annotated with its step count); results are cached and can be re-analyzed.*
+
+### Graph: Timeline
+
+![Graph: Timeline](assets/screenshot-timeline.png)
+
+*X axis = turn (time), Y axis = stage lanes; topics are colored bars positioned by their turn span, and semantic relations are faint dashed curves (highlighted on hover / click), linked with the left outline.*
+
+### Graph: Structure
+
+![Graph: Structure](assets/screenshot-structure.png)
 
 *Stage → topic tree with relation curves on the right rail; stages are collapsible, hover a node for details and click to open the topic detail.*
 
@@ -187,6 +205,21 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.41** — Workflow mini timeline: no edges between adjacent topics at all (only non-adjacent relations remain).
+- **0.6.40** — Workflow mini timeline dot labels now show the turn range (轮X-Y).
+- **0.6.39** — Workflow mini timeline dot labels use T1/T2….
+- **0.6.38** — Workflow mini timeline: a single relation between adjacent topics is hidden.
+- **0.6.37** — Main timeline: a single relation between adjacent topics is hidden (avoids duplicating `next`).
+- **0.6.36** — Relation mining rework: cap 1.5N, merge (not overwrite) segmentation relations, include subtopics, include summaries, add extension edges (parent → child), orphan second pass; revisit excludes parent-child pairs.
+- **0.6.35** — In-stage relations: overlapping arcs are stacked into layers.
+- **0.6.34** — In-stage relations: dot labels use the topic title (truncated to 10 chars).
+- **0.6.33** — Added the "in-stage topic relations" mini timeline to the workflow stage detail.
+- **0.6.32** — Timeline relation lines get a wider invisible hit area; hover resets on scroll; SVG overflow visible.
+- **0.6.31** — Bottom padding (150px) for the structure/timeline scroll areas so the composer no longer covers content.
+- **0.6.30** — Structure main column capped at 660px and nodes at 560px.
+- **0.6.29** — Structure canvas now fits the viewport width; subagent branch gap increased to 26px.
+- **0.6.28** — Larger vertical gap between subagent branches (12→22px).
+- **0.6.27** — Timeline: removed duplicated stage names from lanes; hovering a bar highlights the matching outline topic.
 - **0.6.26** — Timeline: topic bars have a 6px minimum width (no more dots); relation lines slightly brighter; same-stage relations show the line but hide the label by default.
 - **0.6.25** — Keep same-stage relation lines but hide their labels by default; fixed CSS order so highlights turn solid.
 - **0.6.24** — Same-stage relation labels hidden by default (only shown when highlighted).
