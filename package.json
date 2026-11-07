@@ -1,8 +1,7 @@
 {
   "name": "dsh-topic-graph",
   "version": "0.6.41",
-  "description": "会话话题图谱：按轮次切分会话，AI 增量聚合为话题与阶段，提供链式与图谱两种视图，展示每个话题/轮次的 token 消耗、工具调用与 Agent 耗时占比。",
-  "private": true,
+  "description": "会话话题图谱：按轮次切分会话，AI 增量聚合为话题与阶段，提供工作流 / 时间线 / 结构图三种视图，展示每个话题/轮次的 token 消耗、工具调用与 Agent 耗时占比。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -25,8 +24,8 @@
       "zh": "话题图谱"
     },
     "description": {
-      "en": "Segment sessions by turn, let AI incrementally cluster turns into topics and stages, and show token/tool/agent-time shares in chain and graph views.",
-      "zh": "按轮次切分会话，由 AI 增量聚合为话题与阶段，在链式与图谱视图中展示 token、工具调用与 Agent 耗时占比。"
+      "en": "Segment sessions by turn, let AI incrementally cluster turns into topics and stages, with workflow / timeline / structure graph views plus token, tool and agent-time shares.",
+      "zh": "按轮次切分会话，由 AI 增量聚合为话题与阶段，提供工作流 / 时间线 / 结构图三种视图，展示 token、工具调用与 Agent 耗时占比。"
     }
   },
   "keywords": [
@@ -41,7 +40,8 @@
   ],
   "license": "MIT",
   "engines": {
-    "node": ">=20"
+    "node": ">=20",
+    "dsh": ">=0.2.0-rc.2"
   },
   "dsh": {
     "bundle": {
@@ -50,6 +50,15 @@
     "client": {
       "platform": "web",
       "immediately": true
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.2+": "compatible"
+      }
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hagen666/dsh-topic-graph.git"
   }
 }
