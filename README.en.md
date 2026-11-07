@@ -9,7 +9,7 @@
 The plugin docks as a **Topics** view right after "Conversation" / "Trajectory", with two views:
 
 - **Topics · Workflow**: a stage → topic tree on the left, and the selected stage's detail on the right (overview stats, expandable topic cards, turn details and per-turn AI analysis);
-- **Topics · Graph**: a relation graph of stages / topics / subtopics / subagent branches, with Ctrl+wheel zoom and hover tooltips.
+- **Topics · Graph**: two views — **Timeline** (X = turn/time, Y = stage lanes; topics are colored bars, relations are curves) and **Structure** (stage → topic tree plus a relation rail), with Ctrl+wheel zoom and hover details.
 
 The fixed top bar shows session stats (tokens / step time / tools / turns / topics / stages / relations / AI cost) and lets you pick the segmentation model and trigger segmentation.
 
@@ -17,11 +17,21 @@ The fixed top bar shows session stats (tokens / step time / tools / turns / topi
 
 ### Topics · Workflow
 
-![Topics · Workflow](assets/screenshot-topics.png)
+![Topics · Workflow](assets/screenshot-workflow.png)
 
-*Stage tree on the left (collapsible, with token/time ratios), and the selected stage on the right: overview stats (tokens / wall time / tools with ratio bars) + expandable topic cards + turn details (total steps, per-turn AI analysis).*
+*Stage tree on the left (collapsible, with token/time ratios) and the selected stage's detail on the right: overview stats (tokens / wall time / tools with ratio bars) + expandable topic cards + turn details (total steps, per-turn AI analysis).*
 
-> The graph view screenshot will be updated after the relation-visualization redesign.
+### Topics · Timeline
+
+![Topics · Timeline](assets/screenshot-timeline.png)
+
+*X axis = turn (time), Y axis = stage lanes; topics are colored bars positioned by their turn span, and semantic relations are dashed curves (faint by default, highlighted on hover / click).*
+
+### Topics · Structure
+
+![Topics · Structure](assets/screenshot-structure.png)
+
+*Stage → topic tree with relation curves on the right rail; stages are collapsible, hover a node for details and click to open the topic detail.*
 
 ---
 
@@ -130,7 +140,7 @@ readSession  ──┘                                                    └─
 ```
 
 - **Host half** (`lib/index.js`): event folding, turn stats, incremental AI segmentation (prompting / validation / fallback / adaptive batching), relations and subagent branches, persistence, HTTP routes.
-- **Client half** (`lib/client.js`): registers `shell.overlay`, polls the Host, renders both views, the detail overlay, and jump actions.
+- **Client half** (`lib/client.js`): registers the `conversation.view` "Topics" view, polls the Host, renders Workflow and Graph (Timeline / Structure) views, the detail overlay and jump actions.
 - AI output is validated by the Host: turns must be covered exactly once, parent links must exist and be acyclic, subtopic depth ≤ 3, every topic must belong to a stage; invalid parts are fixed or rolled back, and truncated JSON is repaired where possible.
 
 ### HTTP routes
@@ -168,7 +178,7 @@ Layout:
 
 ```
 lib/index.js      Host: event folding, turn stats, AI segmentation, relations/branches, persistence, REST
-lib/client.js     Client: shell.overlay panel (chain / graph / detail / jump)
+lib/client.js     Client: conversation.view panel (Topics · Workflow / Topics · Graph)
 cordis.patch.yml  dsh bundle registration and default config
 locale/           plugin display name and description (zh / en)
 assets/           README screenshots
@@ -177,7 +187,22 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.26** — Timeline: topic bars have a 6px minimum width (no more dots); relation lines slightly brighter; same-stage relations show the line but hide the label by default.
+- **0.6.25** — Keep same-stage relation lines but hide their labels by default; fixed CSS order so highlights turn solid.
+- **0.6.24** — Same-stage relation labels hidden by default (only shown when highlighted).
+- **0.6.23** — Relation labels fainter by default; only the hovered/selected relation shows its label, others hide.
+- **0.6.22** — Relation lines are faint dashed by default; labels are staggered along the curve and shifted right; click a line to pin the highlight, click elsewhere to clear.
+- **0.6.21** — Renamed "AI segment" to "Incremental segment"; added a deterministic "revisit" fallback (auto edge when topic titles are ≥0.7 similar).
+- **0.6.20** — Tighter structure nodes with more vertical gap; timeline uses thin bars with per-stage colors and no arrowheads.
+- **0.6.19** — Structure nodes 44px tall / 16px gap; timeline auto-fits the viewport, topics become thin bars/dots, smaller fonts.
+- **0.6.18** — Fixed stage boxes overlapping the relation rail / subagent column; fixed edge layering so edges are no longer hidden.
+- **0.6.17** — Graph tab defaults to the Timeline view; header adds a "Structure / Timeline" switch.
+- **0.6.16** — Added the Timeline (Gantt) view, replacing the swimlane; removed the topic matrix.
+- **0.6.15** — Added experimental swimlane and topic-matrix views.
 - **0.6.14** — Final colors: stage headers use a brand gradient (9%→4%), selected topics use a 3% tint with no left bar.
+- **0.6.13** — Selected topic tint 3%, left bar removed.
+- **0.6.12** — Stage headers use a brand gradient again; selected topics fainter.
+- **0.6.11** — Distinguished stage/topic colors (neutral stage + brand stripe, later adjusted).
 - **0.6.10** — Removed the logo and session title from the top bar; moved the Workflow/Graph toggle to the far left and enlarged it.
 - **0.6.9** — Fix linked scrolling in the workflow view: measure and lock the panel height so the top bar stays fixed and the two columns scroll independently.
 - **0.6.8** — Tried constraining dsh's conversation view container via CSS `:has()` (did not fully work).
