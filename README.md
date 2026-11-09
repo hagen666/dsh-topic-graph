@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/hagen666/dsh-topic-graph?style=social)](https://github.com/hagen666/dsh-topic-graph)
 [![dsh-market](https://img.shields.io/badge/dsh--market-listed-4f6ef7)](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
 
-> 会话话题图谱 —— 把每个会话按轮次切开，让 AI 增量聚合成「话题 / 阶段」，一眼看清 token、工具与时间花在哪。
+> 会话话题图谱 —— 把每个会话按轮次切开，让 AI 增量聚合成「话题 / 阶段」，一眼看清 token、工具与时间花在哪。界面支持中英双语切换。
 
 **中文** | [English](README.en.md)
 

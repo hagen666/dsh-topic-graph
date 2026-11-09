@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/hagen666/dsh-topic-graph?style=social)](https://github.com/hagen666/dsh-topic-graph)
 [![dsh-market](https://img.shields.io/badge/dsh--market-listed-4f6ef7)](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
 
-> Session topic graph — split every conversation into turns, let AI incrementally cluster them into topics and stages, and see where tokens, tools, and time actually went.
+> Session topic graph — split every conversation into turns, let AI incrementally cluster them into topics and stages, and see where tokens, tools, and time actually went. The UI switches between Chinese and English.
 
 [中文](README.md) | **English**
 
