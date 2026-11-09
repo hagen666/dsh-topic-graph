@@ -18,6 +18,8 @@ The plugin docks as a **Topics** view right after "Conversation" / "Trajectory",
 
 The fixed top bar shows session stats (tokens / step time / tools / turns / topics / stages / relations / AI cost) and lets you pick the segmentation model and trigger segmentation.
 
+The plugin adds a **Topic Graph** page under dsh **Settings**: toggle the **backend service** (when off, automatic segmentation and AI analysis stop; existing data stays viewable) and switch the plugin **UI language (Chinese / English)**. The UI is fully bilingual, and AI-generated topic / stage names and per-turn analysis follow the language setting (after switching, click "Re-segment all" to regenerate existing content in the new language).
+
 ## Screenshots
 
 ### Workflow: stage overview & in-stage topic relations
@@ -232,6 +234,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.42** — Plugin settings page (enable/disable the backend service, switch the UI language); fully bilingual UI; AI-generated content follows the language setting; install from dsh-market / npm.
 - **0.6.41** — Workflow mini timeline: no edges between adjacent topics at all (only non-adjacent relations remain).
 - **0.6.40** — Workflow mini timeline dot labels now show the turn range (轮X-Y).
 - **0.6.39** — Workflow mini timeline dot labels use T1/T2….

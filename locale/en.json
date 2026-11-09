@@ -1,4 +1,4 @@
 {
   "title": "Topic Graph",
-  "description": "Segment sessions by turn, let AI incrementally cluster turns into topics and stages, and show token/tool/agent-time shares in chain and graph views."
+  "description": "Cluster sessions into topics and stages, with per-topic token / tool / time stats and workflow, timeline and structure views."
 }

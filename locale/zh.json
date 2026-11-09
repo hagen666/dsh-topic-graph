@@ -1,4 +1,4 @@
 {
-  "title": "话题图谱",
-  "description": "按轮次切分会话，由 AI 增量聚合为话题与阶段，在链式与图谱视图中展示 token、工具调用与 Agent 耗时占比。"
+  "title": "话题图谱（Topic Graph）",
+  "description": "把会话按轮次聚合成话题与阶段，按话题统计 token / 工具 / 耗时，并在工作流、时间线、结构图中展示。"
 }
