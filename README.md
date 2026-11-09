@@ -1,5 +1,10 @@
 # dsh-topic-graph
 
+[![npm version](https://img.shields.io/npm/v/dsh-topic-graph)](https://www.npmjs.com/package/dsh-topic-graph)
+[![npm downloads](https://img.shields.io/npm/dm/dsh-topic-graph)](https://www.npmjs.com/package/dsh-topic-graph)
+[![GitHub stars](https://img.shields.io/github/stars/hagen666/dsh-topic-graph?style=social)](https://github.com/hagen666/dsh-topic-graph)
+[![dsh-market](https://img.shields.io/badge/dsh--market-listed-4f6ef7)](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
+
 > 会话话题图谱 —— 把每个会话按轮次切开，让 AI 增量聚合成「话题 / 阶段」，一眼看清 token、工具与时间花在哪。
 
 **中文** | [English](README.en.md)
@@ -102,18 +107,40 @@
 
 要求：dsh（Web profile）已能正常运行。
 
+### 方式一（推荐）：从 dsh-market / 插件市场安装
+
+在 dsh 的**插件市场**里搜索 `dsh-topic-graph`，点「安装」即可。插件详情页：
+👉 [awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
+
+### 方式二：用 dsh CLI 从 npm 安装
+
 ```bash
-# 1) 克隆仓库
+dsh plugin --profile web add dsh-topic-graph
+```
+
+更新到最新版：
+
+```bash
+dsh plugin --profile web update dsh-topic-graph@latest
+```
+
+### 方式三：从 GitHub 安装
+
+```bash
+dsh plugin --profile web add github:hagen666/dsh-topic-graph
+```
+
+### 方式四：本地开发
+
+```bash
 git clone https://github.com/hagen666/dsh-topic-graph.git
 cd dsh-topic-graph
-
-# 2) 安装到 dsh 的 web profile（把路径换成你的实际路径）
 dsh plugin --profile web add file:/absolute/path/to/dsh-topic-graph
 ```
 
-然后**重启 dsh**（在运行 `dsh web` 的终端 Ctrl-C 后重新执行），刷新浏览器页面。
+安装后**重启 dsh**（在运行 `dsh web` 的终端 Ctrl-C 后重新执行），刷新浏览器页面。
 
-> 说明：本插件通过 `dsh.bundle.patch` 注册 Host 行、通过 `dsh.client` 声明 Web 启用，不需要额外构建步骤；`lib/client.js` 即浏览器 bundle。
+> 说明：本插件通过 `dsh.bundle.patch` 注册 Host 行、通过 `dsh.client` 声明 Web 启用，不需要额外构建步骤；`lib/client.js` 即浏览器 bundle。npm 包为预构建产物，安装时不会触发 `allowBuilds` 构建授权。
 
 ## 配置
 

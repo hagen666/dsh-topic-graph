@@ -1,5 +1,10 @@
 # dsh-topic-graph
 
+[![npm version](https://img.shields.io/npm/v/dsh-topic-graph)](https://www.npmjs.com/package/dsh-topic-graph)
+[![npm downloads](https://img.shields.io/npm/dm/dsh-topic-graph)](https://www.npmjs.com/package/dsh-topic-graph)
+[![GitHub stars](https://img.shields.io/github/stars/hagen666/dsh-topic-graph?style=social)](https://github.com/hagen666/dsh-topic-graph)
+[![dsh-market](https://img.shields.io/badge/dsh--market-listed-4f6ef7)](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
+
 > Session topic graph — split every conversation into turns, let AI incrementally cluster them into topics and stages, and see where tokens, tools, and time actually went.
 
 [中文](README.md) | **English**
@@ -102,18 +107,40 @@ The hardest question in a long session is "where does this stand, where did the 
 
 Requires a working dsh Web profile.
 
+### Option 1 (recommended): install from dsh-market / the plugin market
+
+Search `dsh-topic-graph` in dsh's **plugin market** and click **Install**. Plugin page:
+👉 [awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/)
+
+### Option 2: install from npm with the dsh CLI
+
 ```bash
-# 1) clone
+dsh plugin --profile web add dsh-topic-graph
+```
+
+Update to the latest version:
+
+```bash
+dsh plugin --profile web update dsh-topic-graph@latest
+```
+
+### Option 3: install from GitHub
+
+```bash
+dsh plugin --profile web add github:hagen666/dsh-topic-graph
+```
+
+### Option 4: local development
+
+```bash
 git clone https://github.com/hagen666/dsh-topic-graph.git
 cd dsh-topic-graph
-
-# 2) install into the dsh web profile (use your absolute path)
 dsh plugin --profile web add file:/absolute/path/to/dsh-topic-graph
 ```
 
 Then **restart dsh** (Ctrl-C in the terminal running `dsh web`, start it again) and refresh the browser page.
 
-> The plugin registers Host rows via `dsh.bundle.patch` and declares the Web client via `dsh.client`; no extra build is needed — `lib/client.js` is the browser bundle.
+> The plugin registers Host rows via `dsh.bundle.patch` and declares the Web client via `dsh.client`; no extra build is needed — `lib/client.js` is the browser bundle. The npm package is prebuilt, so installing it does not trigger an `allowBuilds` approval.
 
 ## Configuration
 
