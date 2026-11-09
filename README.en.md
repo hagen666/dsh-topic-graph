@@ -234,6 +234,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.43** — Fix missing styles on the settings page (the plugin CSS is now injected globally, with a per-component fallback).
 - **0.6.42** — Plugin settings page (enable/disable the backend service, switch the UI language); fully bilingual UI; AI-generated content follows the language setting; install from dsh-market / npm.
 - **0.6.41** — Workflow mini timeline: no edges between adjacent topics at all (only non-adjacent relations remain).
 - **0.6.40** — Workflow mini timeline dot labels now show the turn range (轮X-Y).
