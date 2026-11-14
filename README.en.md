@@ -24,37 +24,37 @@ The plugin adds a **Topic Graph** page under dsh **Settings**: toggle the **back
 
 ### Workflow: stage overview & in-stage topic relations
 
-![Workflow: stage overview](assets/screenshot-workflow.png)
+![Workflow: stage overview](assets/screenshot-workflow-en.png)
 
 *Stage tree on the left (collapsible, with token/time ratios); on the right: stage stats (tokens / wall time / tool ratio bars), the **in-stage topic relations** mini chart (X = turn, dots = topics, dashed curves = relations), and expandable topic cards.*
 
 ### Workflow: topics and turns
 
-![Workflow: topics and turns](assets/screenshot-workflow-topic.png)
+![Workflow: topics and turns](assets/screenshot-workflow-topic-en.png)
 
 *Expanding a topic card lists its turns: turn number, a preview of the user input, total steps / tokens / tool calls / wall time.*
 
 ### Workflow: turn detail
 
-![Workflow: turn detail](assets/screenshot-workflow-turn.png)
+![Workflow: turn detail](assets/screenshot-workflow-turn-en.png)
 
 *Expanding a turn shows tokens (in / out / cache read / cache write), step activity time, tool calls, total steps and model, plus the user input / AI reply with a "jump to conversation" action.*
 
 ### Workflow: per-turn AI analysis
 
-![Workflow: per-turn AI analysis](assets/screenshot-workflow-ai.png)
+![Workflow: per-turn AI analysis](assets/screenshot-workflow-ai-en.png)
 
 *On demand, the model/tool trace of a turn is rewritten as a plain-language step-by-step explanation (each step annotated with its step count); results are cached and can be re-analyzed.*
 
 ### Graph: Timeline
 
-![Graph: Timeline](assets/screenshot-timeline.png)
+![Graph: Timeline](assets/screenshot-timeline-en.png)
 
 *X axis = turn (time), Y axis = stage lanes; topics are colored bars positioned by their turn span, and semantic relations are faint dashed curves (highlighted on hover / click), linked with the left outline.*
 
 ### Graph: Structure
 
-![Graph: Structure](assets/screenshot-structure.png)
+![Graph: Structure](assets/screenshot-structure-en.png)
 
 *Stage → topic tree with relation curves on the right rail; stages are collapsible, hover a node for details and click to open the topic detail.*
 
@@ -234,6 +234,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.44** — Fix English titles being truncated (language-aware truncation, English word-count limits in the prompt, two-line titles); the English README now uses English UI screenshots.
 - **0.6.43** — Fix missing styles on the settings page (the plugin CSS is now injected globally, with a per-component fallback).
 - **0.6.42** — Plugin settings page (enable/disable the backend service, switch the UI language); fully bilingual UI; AI-generated content follows the language setting; install from dsh-market / npm.
 - **0.6.41** — Workflow mini timeline: no edges between adjacent topics at all (only non-adjacent relations remain).

@@ -1,6 +1,6 @@
 {
   "name": "dsh-topic-graph",
-  "version": "0.6.43",
+  "version": "0.6.44",
   "description": "会话话题图谱：按轮次切分会话，AI 增量聚合为话题与阶段，提供工作流 / 时间线 / 结构图三种视图，展示每个话题/轮次的 token 消耗、工具调用与 Agent 耗时占比。",
   "type": "module",
   "main": "lib/index.js",
