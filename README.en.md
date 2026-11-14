@@ -18,7 +18,7 @@ The plugin docks as a **Topics** view right after "Conversation" / "Trajectory",
 
 The fixed top bar shows session stats (tokens / step time / tools / turns / topics / stages / relations / AI cost) and lets you pick the segmentation model and trigger segmentation.
 
-The plugin adds a **Topic Graph** page under dsh **Settings**: toggle the **backend service** (when off, automatic segmentation and AI analysis stop; existing data stays viewable) and switch the plugin **UI language (Chinese / English)**. The UI is fully bilingual, and AI-generated topic / stage names and per-turn analysis follow the language setting (after switching, click "Re-segment all" to regenerate existing content in the new language).
+The plugin adds a **Topic Graph** page under dsh **Settings**: toggle the **backend service** (when off, automatic segmentation and AI analysis stop; existing data stays viewable), switch the plugin **UI language (Chinese / English)**, and tune the **common config** — segmentation mode (auto / AI / rules), reasoning effort, segmentation model, relation mode, subagent options, plus an **Advanced** group for turns per request, input cap, debounce, minimum gap and rule granularity. These settings override the defaults in `cordis.patch.yml` and apply immediately. The UI is fully bilingual, and AI-generated topic / stage names and per-turn analysis follow the language setting (after switching, click "Re-segment all" to regenerate existing content in the new language).
 
 ## Screenshots
 
@@ -234,6 +234,7 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.45** — Settings page now exposes the common config (segmentation mode, auto-segment, reasoning effort, model, relation mode, subagent options) and an Advanced group (turns per request, input cap, debounce, minimum gap, rule granularity); settings override `cordis.patch.yml` and apply immediately.
 - **0.6.44** — Fix English titles being truncated (language-aware truncation, English word-count limits in the prompt, two-line titles); the English README now uses English UI screenshots.
 - **0.6.43** — Fix missing styles on the settings page (the plugin CSS is now injected globally, with a per-component fallback).
 - **0.6.42** — Plugin settings page (enable/disable the backend service, switch the UI language); fully bilingual UI; AI-generated content follows the language setting; install from dsh-market / npm.
