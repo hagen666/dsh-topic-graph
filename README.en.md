@@ -234,6 +234,12 @@ icon.svg          plugin icon
 
 ## Changelog
 
+- **0.6.57** — Settings page gains a **Check for updates** action (queries the latest npm version and copies the update command); the "Topics · Workflow" view is renamed to "Topics · Overview"; graph / timeline / workflow popovers now use an opaque light background.
+- **0.6.53** — The structure graph draws a dashed box around the agent branches of one workflow run, and hovering the box title pops a DAG preview (clickable agents).
+- **0.6.51** — The workflow view gains a "Workflow runs" block: phase-by-phase agent flow per run (`#seq` + label, click to open, token/time totals).
+- **0.6.48** — The structure graph groups a workflow run's subagent branches in a dashed box; workflow-view topic cards group subagents by run.
+- **0.6.46** — Subscribes to workflow engine events (`workflow/start`, `agent-start/end`, `end`) and persists the child-session → run mapping.
+
 - **0.6.45** — Settings page now exposes the common config (segmentation mode, auto-segment, reasoning effort, model, relation mode, subagent options) and an Advanced group (turns per request, input cap, debounce, minimum gap, rule granularity); settings override `cordis.patch.yml` and apply immediately.
 - **0.6.44** — Fix English titles being truncated (language-aware truncation, English word-count limits in the prompt, two-line titles); the English README now uses English UI screenshots.
 - **0.6.43** — Fix missing styles on the settings page (the plugin CSS is now injected globally, with a per-component fallback).
