@@ -13,7 +13,7 @@
 
 The plugin docks as a **Topics** view right after "Conversation" / "Trajectory", with two views:
 
-- **Topics · Workflow**: a stage → topic tree on the left, and the selected stage's detail on the right (overview stats, expandable topic cards, turn details and per-turn AI analysis);
+- **Topics · Overview**: a stage → topic tree on the left, and the selected stage's detail on the right (overview stats, expandable topic cards, turn details and per-turn AI analysis);
 - **Topics · Graph**: two views — **Timeline** (X = turn/time, Y = stage lanes; topics are colored bars, relations are curves) and **Structure** (stage → topic tree plus a relation rail), with Ctrl+wheel zoom and hover details.
 
 The fixed top bar shows session stats (tokens / step time / tools / turns / topics / stages / relations / AI cost) and lets you pick the segmentation model and trigger segmentation.
@@ -22,27 +22,27 @@ The plugin adds a **Topic Graph** page under dsh **Settings**: toggle the **back
 
 ## Screenshots
 
-### Workflow: stage overview & in-stage topic relations
+### Overview: stage & in-stage topic relations
 
-![Workflow: stage overview](assets/screenshot-workflow-en.png)
+![Overview: stage & in-stage topic relations](assets/screenshot-workflow-en.png)
 
 *Stage tree on the left (collapsible, with token/time ratios); on the right: stage stats (tokens / wall time / tool ratio bars), the **in-stage topic relations** mini chart (X = turn, dots = topics, dashed curves = relations), and expandable topic cards.*
 
-### Workflow: topics and turns
+### Overview: topics and turns
 
-![Workflow: topics and turns](assets/screenshot-workflow-topic-en.png)
+![Overview: topics and turns](assets/screenshot-workflow-topic-en.png)
 
 *Expanding a topic card lists its turns: turn number, a preview of the user input, total steps / tokens / tool calls / wall time.*
 
-### Workflow: turn detail
+### Overview: turn detail
 
-![Workflow: turn detail](assets/screenshot-workflow-turn-en.png)
+![Overview: turn detail](assets/screenshot-workflow-turn-en.png)
 
 *Expanding a turn shows tokens (in / out / cache read / cache write), step activity time, tool calls, total steps and model, plus the user input / AI reply with a "jump to conversation" action.*
 
-### Workflow: per-turn AI analysis
+### Overview: per-turn AI analysis
 
-![Workflow: per-turn AI analysis](assets/screenshot-workflow-ai-en.png)
+![Overview: per-turn AI analysis](assets/screenshot-workflow-ai-en.png)
 
 *On demand, the model/tool trace of a turn is rewritten as a plain-language step-by-step explanation (each step annotated with its step count); results are cached and can be re-analyzed.*
 
@@ -187,7 +187,7 @@ readSession  ──┘                                                    └─
 ```
 
 - **Host half** (`lib/index.js`): event folding, turn stats, incremental AI segmentation (prompting / validation / fallback / adaptive batching), relations and subagent branches, persistence, HTTP routes.
-- **Client half** (`lib/client.js`): registers the `conversation.view` "Topics" view, polls the Host, renders Workflow and Graph (Timeline / Structure) views, the detail overlay and jump actions.
+- **Client half** (`lib/client.js`): registers the `conversation.view` "Topics" view, polls the Host, renders Overview and Graph (Timeline / Structure) views, the detail overlay and jump actions.
 - AI output is validated by the Host: turns must be covered exactly once, parent links must exist and be acyclic, subtopic depth ≤ 3, every topic must belong to a stage; invalid parts are fixed or rolled back, and truncated JSON is repaired where possible.
 
 ### HTTP routes
@@ -225,7 +225,7 @@ Layout:
 
 ```
 lib/index.js      Host: event folding, turn stats, AI segmentation, relations/branches, persistence, REST
-lib/client.js     Client: conversation.view panel (Topics · Workflow / Topics · Graph)
+lib/client.js     Client: conversation.view panel (Topics · Overview / Topics · Graph)
 cordis.patch.yml  dsh bundle registration and default config
 locale/           plugin display name and description (zh / en)
 assets/           README screenshots
