@@ -9,6 +9,22 @@
 
 [中文](README.md) | **English**
 
+**What it does**
+
+- 🤖 Collapses a long session into **stages → topics → turns**, segmented **incrementally** by AI (watch it fill in)
+- 📊 Per-topic **token / tool-call / agent-time shares** — see what was expensive and what was slow
+- 🗺 Three views: **Overview** (stage → topic tree), **Timeline**, **Structure** — plus a workflow-run DAG
+- 🧩 **Subagent sessions** on the same map, with typed topic relations (depends / continues / contrasts / fixes / revisits …)
+- 🈶 Fully **bilingual** UI + a settings page (backend service, segmentation model, UI language)
+
+**Install**
+
+```bash
+dsh plugin --profile web add dsh-topic-graph
+```
+
+Or search `dsh-topic-graph` in dsh-market / the plugin market.
+
 `dsh-topic-graph` is a Web UI plugin for [dsh](https://github.com/deepseek-ai) (DeepSeek Harness). It listens to the dsh session event stream, splits each session into **turns**, then asks DeepSeek to **incrementally** cluster turns into **topics** and topics into **stages**, naming both. **Subagent sessions** spawned by a session are segmented too and drawn as branches in the very same graph.
 
 The plugin docks as a **Topics** view right after "Conversation" / "Trajectory", with two views:

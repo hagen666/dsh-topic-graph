@@ -9,6 +9,22 @@
 
 **中文** | [English](README.en.md)
 
+**它能做什么**
+
+- 🤖 把长会话折叠成「阶段 → 话题 → 轮次」三层结构，AI **增量**切分（长会话边切边看）
+- 📊 每一段都有 **token / 工具调用 / Agent 耗时占比**，一眼看清贵在哪、慢在哪
+- 🗺 三个视图：**概览**（阶段→话题树）、**时间线**、**结构图**；外加 workflow run 的 DAG
+- 🧩 **子智能体**作为分支画进同一张图；话题关系（依赖 / 延续 / 对比 / 修复 / 回访…）自动识别
+- 🈶 **中英双语**界面 + 设置页（启停后端服务、切分模型、界面语言）
+
+**安装**
+
+```bash
+dsh plugin --profile web add dsh-topic-graph
+```
+
+或从 [dsh-market / 插件市场](https://awesome-dsh-plugin.com/p/hagen666/dsh-topic-graph/) 搜索 `dsh-topic-graph` 安装。
+
 `dsh-topic-graph` 是 [dsh](https://github.com/deepseek-ai)（DeepSeek Harness）的 Web UI 插件。它监听 dsh 的会话事件流，把每个会话按**轮次（turn）**切分，再调用 DeepSeek 把轮次**增量**聚合成**话题（topic）**、把话题聚合成**阶段（stage）**，并为阶段、话题生成名字。会话里启动的**子智能体会话**也会被切分，并以分支形式直接画进同一张图。
 
 插件在 Web UI 里以「**话题**」视图的形式停在「对话 / 轨迹」之后，包含两个视图：
